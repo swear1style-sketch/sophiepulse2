@@ -33,12 +33,6 @@ body {
   overflow-x: hidden;
 }
 
-#welcome-overlay {
-  display: none !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
-
 ::selection {
   background-color: var(--accent-purple);
   color: #fff;
