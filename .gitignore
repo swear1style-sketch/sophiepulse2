@@ -1,0 +1,10 @@
+.DS_Store
+.vercel
+node_modules/
+*.log
+.env
+*.tmp
+*.swp
+*.bak
+assets/.DS_Store
+assets/videos/.DS_Store

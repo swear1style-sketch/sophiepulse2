@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SofiaPulse | AI-Powered Ad Studio</title>
+    <meta name="description" content="SofiaPulse streamlines marketing workflows, creating smarter, more intuitive campaigns that deliver results. Powered by human ingenuity, enhanced by AI.">
+    <meta name="keywords" content="SofiaPulse, AI, advertising, ad studio, marketing, campaigns, display, OLV, native, CTV">
+    <meta property="og:title" content="SofiaPulse | AI-Powered Ad Studio">
+    <meta property="og:description" content="Sofia streamlines marketing workflows, creating smarter, more intuitive campaigns that deliver results.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.sofiapulse.com">
+    <link rel="icon" href="https://cdn.prod.website-files.com/671f8c2a9115bc1247f939a2/678541b6d33687d80146c9f4_favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://cdn.prod.website-files.com/671f8c2a9115bc1247f939a2/678541cc844f17a7fce021be_favicon%20large.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- WELCOME ANIMATION OVERLAY                             -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <div id="welcome-overlay">
+        <!-- Minimal geometric lines background -->
+        <div class="welcome-bg-lines">
+            <svg viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                <path class="welcome-line-path" d="M-100 250 H 300 Q 400 250 400 350 V 600 Q 400 700 500 700 H 1540" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+                <path class="welcome-line-path" d="M 1000 -100 V 200 Q 1000 300 900 300 H 600 Q 500 300 500 400 V 1000" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+                <path class="welcome-line-path" d="M-100 750 H 200 Q 300 750 300 850 V 1000" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+                <path class="welcome-line-path" d="M 1200 1000 V 800 Q 1200 700 1300 700 H 1540" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+            </svg>
+        </div>
+        <div class="welcome-content">
+            <div class="welcome-logo-container">
+                <img src="https://cdn.prod.website-files.com/671f8c2a9115bc1247f939a2/6777cdb552678d1c4d05ba18_sofialogo.svg" alt="SofiaPulse" class="welcome-logo">
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- NAVBAR                                                 -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <nav id="navbar" class="navbar">
+        <div class="navbar-inner">
+            <a href="#" class="nav-logo">
+                <img src="https://cdn.prod.website-files.com/671f8c2a9115bc1247f939a2/6777cdb552678d1c4d05ba18_sofialogo.svg" alt="SofiaPulse">
+            </a>
+            <div class="nav-links">
+                <a href="#features">Products</a>
+                <a href="#innovation">Features</a>
+                <a href="#testimonials">About</a>
+            </div>
+            <div class="nav-actions">
+                <a href="#contact" class="btn-demo">DEMO</a>
+                <a href="#contact" class="btn-contact">CONTACT</a>
+            </div>
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- MOBILE MENU                                            -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <div id="mobile-menu" class="mobile-menu">
+        <div class="mobile-menu-inner">
+            <a href="#features">Products</a>
+            <a href="#innovation">Features</a>
+            <a href="#testimonials">About</a>
+            <div class="mobile-menu-actions">
+                <a href="#contact" class="btn-demo">DEMO</a>
+                <a href="#contact" class="btn-contact">CONTACT</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- VIDEO SCROLL SECTION                                   -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <section id="video-section" class="video-scroll-container">
+        <div class="video-sticky">
+            <canvas id="video-canvas"></canvas>
+            <video id="scroll-video" src="assets/videos/scrolldown.mp4" muted playsinline preload="auto"></video>
+
+            <!-- Overlay 1: Hero Text (bottom-left) -->
+            <div class="video-overlay overlay-1" id="overlay-1">
+                <h1>Smarter Campaigns. Real Results.</h1>
+            </div>
+
+            <!-- Overlay 2: Feature Highlight (top-right) -->
+            <div class="video-overlay overlay-2" id="overlay-2">
+                <h2>AI-Driven<br>Creative Studio</h2>
+            </div>
+
+
+            <!-- Watermark Cover (bottom-right) -->
+            <div class="watermark-cover">
+                <img src="https://cdn.prod.website-files.com/671f8c2a9115bc1247f939a2/678541b6d33687d80146c9f4_favicon.png" alt="SofiaPulse Logo">
+            </div>
+
+            <!-- Bottom gradient for transition -->
+            <div class="video-gradient-bottom"></div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- PARTNERS SECTION                                       -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <div class="premium-divider">
+        <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0,0 Q360,100 720,50 T1440,100 V100 H0 Z" fill="rgba(255,255,255,0.02)"/>
+            <path d="M0,0 Q360,100 720,50 T1440,100" stroke="url(#divider-grad)" stroke-width="2" filter="drop-shadow(0 0 12px rgba(139,92,246,0.6))"/>
+            <defs>
+                <linearGradient id="divider-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="transparent" />
+                    <stop offset="50%" stop-color="#8B5CF6" />
+                    <stop offset="100%" stop-color="transparent" />
+                </linearGradient>
+            </defs>
+        </svg>
+    </div>
+    <section class="partners-section">
+        <p class="partners-label">Trusted by industry leaders</p>
+        <div class="partners-track">
+            <img src="https://cdn.prod.website-files.com/671f8c2a9115bc1247f939a2/671f97052e0650d45add6c0c_aircanda.png" alt="Air Canada">
+            <img src="https://cdn.prod.website-files.com/671f8c2a9115bc1247f939a2/671f9705a242b74eed213fd3_bell.png" alt="Bell">
+            <img src="https://cdn.prod.website-files.com/671f8c2a9115bc1247f939a2/671f9707f90fd0a1d1dc9198_novartis.png" alt="Novartis">
+            <img src="https://cdn.prod.website-files.com/671f8c2a9115bc1247f939a2/671f97085f24b80053a06d21_ord.png" alt="ORD">
+            <img src="https://cdn.prod.website-files.com/671f8c2a9115bc1247f939a2/671f9705f90fd0a1d1dc90ef_car.png" alt="Car">
+            <img src="https://cdn.prod.website-files.com/671f8c2a9115bc1247f939a2/671f9705a90afc36fecba4e8_lincoln.png" alt="Lincoln">
+            <!-- Duplicated for infinite marquee -->
+            <img src="https://cdn.prod.website-files.com/671f8c2a9115bc1247f939a2/671f97052e0650d45add6c0c_aircanda.png" alt="Air Canada">
+            <img src="https://cdn.prod.website-files.com/671f8c2a9115bc1247f939a2/671f9705a242b74eed213fd3_bell.png" alt="Bell">
+            <img src="https://cdn.prod.website-files.com/671f8c2a9115bc1247f939a2/671f9707f90fd0a1d1dc9198_novartis.png" alt="Novartis">
+            <img src="https://cdn.prod.website-files.com/671f8c2a9115bc1247f939a2/671f97085f24b80053a06d21_ord.png" alt="ORD">
+            <img src="https://cdn.prod.website-files.com/671f8c2a9115bc1247f939a2/671f9705f90fd0a1d1dc90ef_car.png" alt="Car">
+            <img src="https://cdn.prod.website-files.com/671f8c2a9115bc1247f939a2/671f9705a90afc36fecba4e8_lincoln.png" alt="Lincoln">
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- FEATURES SECTION                                       -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <section id="features" class="features-section">
+        <div class="section-header reveal-up">
+            <span class="section-label">What We Offer</span>
+            <h2 class="section-title">Innovative platform with flexible features</h2>
+            <p class="section-subtitle">Pick from a wide range of engagement features based on your goals and start engaging instantly on top premium publishers.</p>
+        </div>
+        <div class="process-container">
+            <div class="process-steps">
+                <div class="process-step" data-step="1">
+                    <h3>Step 1: Rapid Campaign Creation</h3>
+                    <p>Launch high-impact campaigns quickly using AI-powered tools designed for speed and maximum efficiency. Start generating content and variants in seconds.</p>
+                </div>
+                <div class="process-step" data-step="2">
+                    <h3>Step 2: Unified Platform Management</h3>
+                    <p>Manage all your creative assets and campaigns in one intuitive, centralized platform built for scale. Stop jumping between tools.</p>
+                </div>
+                <div class="process-step" data-step="3">
+                    <h3>Step 3: Smart AI Targeting</h3>
+                    <p>Sofia's Gen AI ensures that your campaigns are optimized for maximum effectiveness and precise reach across Display, OLV, Native and CTV.</p>
+                </div>
+                <div class="process-step" data-step="4">
+                    <h3>Step 4: Results-Driven Execution</h3>
+                    <p>Focused on maximizing performance and delivering measurable outcomes across all channels with full transparency and detailed reporting.</p>
+                </div>
+            </div>
+            <div class="process-video-sticky">
+                <div class="video-preview-wrapper">
+                    <video id="process-video" src="assets/videos/what we do.mp4" muted playsinline preload="auto"></video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- INNOVATION SECTION                                     -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <section id="innovation" class="innovation-section">
+        <div class="innovation-inner">
+            <div class="innovation-content reveal-up">
+                <span class="section-label">Our Technology</span>
+                <h2 class="section-title">Smart Marketing Architecture, Seamless Integration</h2>
+                <p class="section-subtitle">Our product architecture, powered by Gen AI, doesn't just create content — it builds intelligent, adaptive experiences that resonate with users.</p>
+                <ul class="innovation-list">
+                    <li>Engage 5 to 12 times more than industry average</li>
+                    <li>Launch campaigns 3 times faster with AI automation</li>
+                    <li>Maximize user attention across all touchpoints</li>
+                    <li>Award-winning tech with proven results</li>
+                    <li>Display, OLV, Native, and CTV — all powered with precision</li>
+                </ul>
+                <a href="#contact" class="btn-cta" style="margin-top: 2rem;">Book a Demo</a>
+            </div>
+            <div class="innovation-visual reveal-up">
+                <img src="https://cdn.prod.website-files.com/671f8c2a9115bc1247f939a2/6777cef3636dc4314d7996d2_Mobile%20screens.png" alt="SofiaPulse Platform" class="innovation-image">
+                <div class="innovation-glow"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- TESTIMONIALS SECTION                                   -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="testimonials-inner">
+            <div class="section-header reveal-up">
+                <span class="section-label">Testimonials</span>
+                <h2 class="section-title">What our clients are saying about us</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">SofiaPulse has transformed the way we engage with our audience by delivering engaging ad experiences. Their platform seamlessly integrates with our existing systems, allowing us to maximize our ad inventory while maintaining a smooth user experience.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">VL</div>
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">Veronica Lalletti</div>
+                            <div class="testimonial-role">Kijiji</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">SofiaPulse has been attentive to our needs, delivering an innovative solution for our campaign. Their team is flexible, transparent, collaborative, and extremely efficient. I highly recommend SofiaPulse for its performance-driven approach.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">CH</div>
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">Caroline Hudon</div>
+                            <div class="testimonial-role">SIG</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">SofiaPulse's white glove service and powerful studio features have set a new standard for our advertising efforts. The seamless process, from concept to execution, ensures we always stay ahead of our campaign goals.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">AG</div>
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">Alejandro Gomez</div>
+                            <div class="testimonial-role">AutoTrader</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- FOOTER                                                 -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-logo">
+                <img src="https://cdn.prod.website-files.com/671f8c2a9115bc1247f939a2/6779ac372927787791df52bb_footerLogo.svg" alt="SofiaPulse">
+            </div>
+            <div class="footer-links">
+                <a href="/privacy-policy">Privacy Policy</a>
+                <a href="/term-of-services">Terms of Services</a>
+                <a href="https://request.sofiapulse.com/" target="_blank">Request a Mockup</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright 2025 — Made with ❤️ in Montreal</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lenis@1.1.2/dist/lenis.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
