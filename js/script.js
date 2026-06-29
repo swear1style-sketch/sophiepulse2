@@ -129,17 +129,18 @@
     var videoSection = document.getElementById('video-section');
 
     if (canvas && video && videoSection) {
-      var ctx = canvas.getContext('2d');
-      canvas.width = 1280;
-      canvas.height = 720;
+      var ctx = canvas.getContext('2d', { alpha: false }); // alpha: false helps performance
+      // Dimensions will be set on loadedmetadata to match video native resolution
 
       var seeking = false;
 
-      /* Resize canvas to cover viewport at 16:9 */
+      /* Resize canvas to cover viewport at native aspect ratio */
       function resizeCanvas() {
+        if (!video.videoWidth) return; // Wait until video metadata is loaded
+
         var viewportWidth = window.innerWidth;
         var viewportHeight = window.innerHeight;
-        var videoAspect = 16 / 9;
+        var videoAspect = video.videoWidth / video.videoHeight;
         var viewportAspect = viewportWidth / viewportHeight;
 
         var displayWidth, displayHeight;
@@ -159,6 +160,19 @@
         canvas.style.position = 'absolute';
         canvas.style.left = (viewportWidth - displayWidth) / 2 + 'px';
         canvas.style.top = (viewportHeight - displayHeight) / 2 + 'px';
+
+        /* Maximize resolution for retina screens */
+        var dpr = window.devicePixelRatio || 1;
+        canvas.width = displayWidth * dpr;
+        canvas.height = displayHeight * dpr;
+
+        /* Re-apply high quality smoothing after resize */
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+
+        if (!seeking && video.readyState >= 1) {
+          drawFrame();
+        }
       }
 
       resizeCanvas();
@@ -244,8 +258,9 @@
 
       window.addEventListener('scroll', handleVideoScroll, { passive: true });
 
-      /* Once metadata is loaded, draw the first frame */
+      /* Once metadata is loaded, configure canvas and draw the first frame */
       video.addEventListener('loadedmetadata', function () {
+        resizeCanvas();
         video.currentTime = 0;
         /* Handle case where user has already scrolled */
         handleVideoScroll();
@@ -253,6 +268,7 @@
 
       /* Also try to draw first frame if video is already ready */
       if (video.readyState >= 1) {
+        resizeCanvas();
         video.currentTime = 0;
         handleVideoScroll();
       }
