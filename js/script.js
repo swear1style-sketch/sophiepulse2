@@ -133,6 +133,8 @@
       // Dimensions will be set on loadedmetadata to match video native resolution
 
       var seeking = false;
+      var lastRenderedTime = -1;
+      var renderLoopId = null;
 
       /* Resize canvas to cover viewport at native aspect ratio */
       function resizeCanvas() {
@@ -180,7 +182,31 @@
 
       /* Draw current video frame onto canvas */
       function drawFrame() {
+        if (!video.videoWidth || !video.videoHeight) return;
+        if (Math.abs(video.currentTime - lastRenderedTime) < 0.001) return;
+
         ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        lastRenderedTime = video.currentTime;
+      }
+
+      function startRenderLoop() {
+        if (renderLoopId) return;
+
+        function step() {
+          if (video.readyState >= 2) {
+            drawFrame();
+          }
+          renderLoopId = requestAnimationFrame(step);
+        }
+
+        renderLoopId = requestAnimationFrame(step);
+      }
+
+      function stopRenderLoop() {
+        if (renderLoopId) {
+          cancelAnimationFrame(renderLoopId);
+          renderLoopId = null;
+        }
       }
 
       /* On seeked, paint the frame and release the lock */
@@ -188,6 +214,10 @@
         drawFrame();
         seeking = false;
       });
+
+      video.addEventListener('play', startRenderLoop);
+      video.addEventListener('pause', stopRenderLoop);
+      video.addEventListener('ended', stopRenderLoop);
 
       /* Overlay references */
       var overlay1 = document.getElementById('overlay-1');
@@ -235,6 +265,7 @@
       }
 
       /* Scroll-driven video seek */
+      window.handleVideoScroll = handleVideoScroll;
       function handleVideoScroll() {
         var sectionTop = videoSection.offsetTop;
         var scrollProgress = (window.scrollY - sectionTop) / (videoSection.offsetHeight - window.innerHeight);
@@ -262,6 +293,7 @@
       video.addEventListener('loadedmetadata', function () {
         resizeCanvas();
         video.currentTime = 0;
+        startRenderLoop();
         /* Handle case where user has already scrolled */
         handleVideoScroll();
       });
@@ -270,6 +302,7 @@
       if (video.readyState >= 1) {
         resizeCanvas();
         video.currentTime = 0;
+        startRenderLoop();
         handleVideoScroll();
       }
     }
