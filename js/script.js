@@ -273,9 +273,13 @@
         /* Clamp 0–1 */
         scrollProgress = Math.max(0, Math.min(1, scrollProgress));
 
+        /* Compress the final portion of the scroll so the page can start moving down before the video fully ends */
+        var videoEndThreshold = 0.88;
+        var videoProgress = Math.min(1, scrollProgress / videoEndThreshold);
+
         /* Seek video */
         if (video.duration && !isNaN(video.duration)) {
-          var targetTime = scrollProgress * video.duration;
+          var targetTime = videoProgress * video.duration;
 
           if (!seeking && Math.abs(video.currentTime - targetTime) > 0.01) {
             seeking = true;
