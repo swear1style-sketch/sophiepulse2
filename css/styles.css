@@ -972,6 +972,28 @@ body {
     gap: 5px;
     padding: 0.5rem;
   }
+  .process-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .process-video-sticky {
+    grid-row: 1;
+    position: sticky;
+    top: 80px;
+    z-index: 5;
+    padding-bottom: 1rem;
+    background: var(--bg-primary);
+  }
+  .process-steps {
+    grid-row: 2;
+  }
+  .process-step {
+    min-height: auto;
+    padding: 3rem 0;
+  }
+  .process-step h3 {
+    font-size: 1.5rem;
+  }
   .features-grid {
     grid-template-columns: 1fr;
   }
